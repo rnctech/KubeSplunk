@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: splunk.rnctech.com
+  namespace: kong
+spec:
+  rules:
+  - host: splunk.rnctech.com
+    http:
+      paths:
+      - backend:
+          serviceName: echo
+          servicePort: 80
+        path: /echo
+        pathType: ImplementationSpecific
+      - backend:
+          serviceName: splunkmaster
+          servicePort: 8000
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - splunk.rnctech.com
+    secretName: splunk.rnctech.com
+status:
+  loadBalancer:
+    ingress:
+    - hostname: czl6666.us-west-2.elb.amazonaws.com
