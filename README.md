@@ -20,7 +20,9 @@ Steps for bring up trail Splunk service
 
 - 3.1 exec into pod and su to user splunk, then run cmd as below
 
-- 3.2 cd /opt/splunk/bin
+- 3.2 run cmd sequences as below
+ 
+cd /opt/splunk/bin
 
 ./splunk enable webserver
 
